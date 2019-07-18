@@ -6,14 +6,14 @@ export abstract class Connector {
      */
     private _defaultOptions: any = {
         auth: {
-            headers: {}
+            headers: {},
         },
         authEndpoint: "/broadcasting/auth",
         broadcaster: "pusher",
         csrfToken: null,
         host: null,
         key: null,
-        namespace: "App.Events"
+        namespace: 'App.Events',
     };
 
     /**
