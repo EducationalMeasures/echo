@@ -1,7 +1,7 @@
 {
-  "name": "laravel-echo",
+  "name": "@educationalmeasures/echo",
   "version": "1.5.3",
-  "description": "Laravel Echo library for beautiful Pusher and Socket.IO integration",
+  "description": "EM fork of Laravel Echo library for beautiful Pusher and Socket.IO integration",
   "main": "dist/echo.common.js",
   "types": "dist/echo.d.ts",
   "module": "dist/echo.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laravel/echo"
+    "url": "https://github.com/educationalmeasures/echo"
   },
   "keywords": [
     "laravel",

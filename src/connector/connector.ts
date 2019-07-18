@@ -1,7 +1,6 @@
-import { Channel, PresenceChannel } from './../channel';
+import { Channel, PresenceChannel } from "./../channel";
 
 export abstract class Connector {
-
     /**
      * Default connector options.
      */
@@ -9,12 +8,12 @@ export abstract class Connector {
         auth: {
             headers: {}
         },
-        authEndpoint: '/broadcasting/auth',
-        broadcaster: 'pusher',
+        authEndpoint: "/broadcasting/auth",
+        broadcaster: "pusher",
         csrfToken: null,
         host: null,
         key: null,
-        namespace: 'App.Events'
+        namespace: "App.Events"
     };
 
     /**
@@ -37,7 +36,7 @@ export abstract class Connector {
         this.options = Object.assign(this._defaultOptions, options);
 
         if (this.csrfToken()) {
-            this.options.auth.headers['X-CSRF-TOKEN'] = this.csrfToken();
+            this.options.auth.headers["X-CSRF-TOKEN"] = this.csrfToken();
         }
 
         return options;
@@ -49,12 +48,19 @@ export abstract class Connector {
     protected csrfToken(): string {
         let selector;
 
-        if (typeof window !== 'undefined' && window['Laravel'] && window['Laravel'].csrfToken) {
-            return window['Laravel'].csrfToken;
+        if (
+            typeof window !== "undefined" &&
+            window["Laravel"] &&
+            window["Laravel"].csrfToken
+        ) {
+            return window["Laravel"].csrfToken;
         } else if (this.options.csrfToken) {
             return this.options.csrfToken;
-        } else if (typeof document !== 'undefined' && (selector = document.querySelector('meta[name="csrf-token"]'))) {
-            return selector.getAttribute('content');
+        } else if (
+            typeof document !== "undefined" &&
+            (selector = document.querySelector('meta[name="csrf-token"]'))
+        ) {
+            return selector.getAttribute("content");
         }
 
         return null;
